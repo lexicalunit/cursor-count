@@ -1,9 +1,9 @@
 {
-  "name": "cursor-count",
-  "main": "./lib/cursor-count",
+  "name": "cursor-indicator",
+  "main": "./lib/cursor-indicator",
   "version": "0.2.0",
-  "description": "Display number of multiple cursors next to the position of cursor in the status bar.",
-  "repository": "https://github.com/paradoxxxzero/cursor-count",
+  "description": "",
+  "repository": "https://github.com/lexicalunit/cursor-indicator",
   "license": "MIT",
   "engines": {
     "atom": ">=0.194.0 <2.0.0"

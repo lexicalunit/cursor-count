@@ -1,4 +1,3 @@
-# cursor-count package
+# Cursor Indicator
 
-Display number of multiple cursors next to the position of cursor in the status bar.
-(There must be several cursors)
+Indicates the current number of cursors in the active editor via the Atom status bar.

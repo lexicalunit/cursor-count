@@ -1,14 +1,15 @@
 {CompositeDisposable} = require 'atom'
 
-class CursorCountView extends HTMLElement
+class CursorIndicatorView extends HTMLElement
   initialize: ->
-    @classList.add('inline-block')
+    @classList.add 'inline-block'
+    @classList.add 'cursor-indicator'
     @createEventHandlers()
     @update()
 
   destroy: ->
     @disposables?.dispose()
-    @disposables = null
+    @disposables = null if @disposables
 
   update: (editor = atom.workspace.getActiveTextEditor()) ->
     len = editor?.getCursors().length
@@ -24,9 +25,8 @@ class CursorCountView extends HTMLElement
     @createActivePaneHandler()
 
   createActivePaneHandler: ->
-    @disposables.add atom.workspace.onDidChangeActivePaneItem =>
-      @update()
+    @disposables.add atom.workspace.onDidChangeActivePaneItem => @update()
 
-module.exports = document.registerElement('status-bar-cursor-count',
-                                          prototype: CursorCountView.prototype,
-                                          extends: 'div')
+module.exports = CursorIndicatorView =
+  document.registerElement 'cursor-indicator-view',
+    prototype: CursorIndicatorView.prototype
