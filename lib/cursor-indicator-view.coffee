@@ -9,7 +9,7 @@ class CursorIndicatorView extends HTMLElement
 
   destroy: ->
     @disposables?.dispose()
-    @disposables = null if @disposables
+    @disposables = null
 
   update: (editor = atom.workspace.getActiveTextEditor()) ->
     len = editor?.getCursors().length

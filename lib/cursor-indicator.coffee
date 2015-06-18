@@ -12,11 +12,11 @@ module.exports =
 
   deactivate: ->
     @osberver?.dispose()
-    @observer = null if @observer
+    @observer = null
     @view?.destroy()
-    @view = null if @view
+    @view = null
     @tile?.destroy()
-    @tile = null if @tile
+    @tile = null
 
   observeEditors: ->
     @observer = atom.workspace.observeTextEditors (editor) =>
