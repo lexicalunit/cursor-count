@@ -2,7 +2,7 @@
   "name": "cursor-indicator",
   "main": "./lib/cursor-indicator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Indicates the current number of cursors in the active editor via the Atom status bar.",
   "repository": "https://github.com/lexicalunit/cursor-indicator",
   "license": "MIT",
   "engines": {
@@ -15,5 +15,10 @@
       }
     }
   },
+  "keywords": [
+    "cursors",
+    "indicator",
+    "status-bar"
+  ],
   "dependencies": {}
 }
