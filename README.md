@@ -22,3 +22,12 @@ You can open your Stylesheet using the Command Palette.
 ```
 Command Palette ➔ Application: Open Your Stylesheet
 ```
+
+
+## Future Work
+
+- Why do spec tests fail on Windows only?
+- Improved documentation.
+- Options for formatting of indicator text.
+- More spec test coverage.
+- Toggle on/off commands for indicator?
