@@ -1,6 +1,14 @@
 {CompositeDisposable} = require 'atom'
 
 module.exports =
+  config:
+    displayPrefix:
+      type: 'string'
+      default: ''
+    displaySuffix:
+      type: 'string'
+      default: ''
+
   consumeStatusBar: (statusBar) ->
     @observeEditors()
     CursorIndicatorView = require './cursor-indicator-view'
