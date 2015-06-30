@@ -1,6 +1,6 @@
 # Cursor Indicator
 
-[![Build Status](https://travis-ci.org/lexicalunit/cursor-indicator.svg?branch=master)](https://travis-ci.org/lexicalunit/cursor-indicator) [![Build status](https://ci.appveyor.com/api/projects/status/w2itq0v9ytqjw71s/branch/master?svg=true)](https://ci.appveyor.com/project/lexicalunit/cursor-indicator/branch/master)
+[![Build Status](https://travis-ci.org/lexicalunit/cursor-indicator.svg?branch=master)](https://travis-ci.org/lexicalunit/cursor-indicator)
 
 Indicates the current number of cursors in the active editor via the Atom status bar.
 
