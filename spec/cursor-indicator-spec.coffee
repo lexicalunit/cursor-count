@@ -27,9 +27,9 @@ describe 'CursorIndicator', ->
   describe 'when cursors are added', ->
     it 'shows cursor indicator', ->
       editor.addCursorAtBufferPosition [1, 0]
-      expect(view.textContent).toEqual '|2'
+      expect(view.textContent).toEqual '2'
       editor.addCursorAtBufferPosition [2, 0]
-      expect(view.textContent).toEqual '|3'
+      expect(view.textContent).toEqual '3'
       editor.selectAll()
       expect(view.textContent).toEqual ''
 
