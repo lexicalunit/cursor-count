@@ -1,37 +1,36 @@
-CursorIndicator = require '../lib/cursor-indicator'
-
 describe 'CursorIndicator', ->
-  [tile, view, editor] = []
+  [CursorIndicator, workspaceElement, statusBar, statusBarService, activeEditor] = []
 
   beforeEach ->
     workspaceElement = atom.views.getView atom.workspace
-    jasmine.attachToDOM workspaceElement
-    waitsForPromise -> atom.packages.activatePackage 'status-bar'
-    waitsForPromise -> atom.packages.activatePackage 'cursor-indicator'
-    waitsForPromise -> atom.workspace.open 'files/test.txt'
-
-    runs ->
-      [tile, view, editor] = [
-        CursorIndicator.tile
-        CursorIndicator.view
-        atom.workspace.getActiveTextEditor()
-      ]
-      editor.setCursorBufferPosition [0, 0]
+    jasmine.attachToDOM(workspaceElement)
+    waitsForPromise ->
+      atom.packages.activatePackage('status-bar').then (pack) ->
+        statusBar = workspaceElement.querySelector 'status-bar'
+        statusBarService = pack.mainModule.provideStatusBar()
+    waitsForPromise ->
+      atom.packages.activatePackage('cursor-indicator').then (pack) ->
+        CursorIndicator = pack.mainModule
+        CursorIndicator.consumeStatusBar statusBar
+    waitsForPromise ->
+      atom.workspace.open('test.txt').then (editor) ->
+        activeEditor = editor
+        activeEditor.setCursorBufferPosition [0, 0]
 
   describe 'after initialization', ->
     it 'tile is in the status bar', ->
-      expect(tile).toBeDefined()
-      expect(view).toBeDefined()
-      expect(editor).toBeDefined()
+      expect(CursorIndicator.tile).toBeDefined()
+      expect(CursorIndicator.view).toBeDefined()
+      expect(activeEditor).toBeDefined()
 
   describe 'when cursors are added', ->
     it 'shows cursor indicator', ->
-      editor.addCursorAtBufferPosition [1, 0]
-      expect(view.textContent).toEqual '2'
-      editor.addCursorAtBufferPosition [2, 0]
-      expect(view.textContent).toEqual '3'
-      editor.selectAll()
-      expect(view.textContent).toEqual ''
+      activeEditor.addCursorAtBufferPosition [1, 0]
+      expect(CursorIndicator.view.textContent).toEqual '2'
+      activeEditor.addCursorAtBufferPosition [2, 0]
+      expect(CursorIndicator.view.textContent).toEqual '3'
+      activeEditor.selectAll()
+      expect(CursorIndicator.view.textContent).toEqual ''
 
   describe 'deactivate', ->
     it 'removes the tile', ->
