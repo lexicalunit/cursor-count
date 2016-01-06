@@ -37,7 +37,9 @@ class CursorIndicatorView extends HTMLElement
     @subs.add atom.config.onDidChange 'cursor-indicator.displayPrefix', redraw
     @subs.add atom.config.onDidChange 'cursor-indicator.displaySuffix', redraw
     @subs.add atom.workspace.onDidChangeActivePaneItem (item) =>
-      return unless 'getCursors' of item  # Ensure active pane actually supports cursors
+      # Ensure the active pane actually supports cursors.
+      return unless item and 'getCursors' of item
+
       # setTimeout required here otherwise the editor's cursors array
       # will not yet have been updated when we execute @update().
       setTimeout (=> @update item), 0
