@@ -1,18 +1,20 @@
 # Cursor Indicator
 
 [![apm package][apm-ver-link]][releases]
-[![][travis-ci-badge]][travis-ci]
-[![][david-badge]][david]
-[![][dl-badge]][apm-pkg-link]
-[![][mit-badge]][mit]
+[![travis-ci][travis-ci-badge]][travis-ci]
+[![appveyor][appveyor-badge]][appveyor]
+[![circle-ci][circle-ci-badge]][circle-ci]
+[![david][david-badge]][david]
+[![download][dl-badge]][apm-pkg-link]
+[![mit][mit-badge]][mit]
 
 Indicates the current number of cursors in the active editor via the Atom status bar.
 
-![cursors](https://cloud.githubusercontent.com/assets/1903876/8216758/212eae80-14fe-11e5-80a6-443a6daf9d95.png)
+![cursors][img_cursors]
 
 ## Styling
 
-Add and modify to your liking the following code to your personal Atom Stylesheet.
+Add and tweak to your liking the following code to your personal Atom Stylesheet.
 
 ```less
 .cursor-indicator {
@@ -29,7 +31,7 @@ Command Palette ➔ Application: Open Your Stylesheet
 
 ## Future Work
 
-- Why do spec tests fail on Windows only?
+- Why do spec tests fail on Windows?
 - Improved documentation.
 
 ---
@@ -46,5 +48,11 @@ Command Palette ➔ Application: Open Your Stylesheet
 [dl-badge]:         http://img.shields.io/apm/dm/cursor-indicator.svg
 [travis-ci-badge]:  https://travis-ci.org/lexicalunit/cursor-indicator.svg?branch=master
 [travis-ci]:        https://travis-ci.org/lexicalunit/cursor-indicator
+[appveyor]:         https://ci.appveyor.com/project/lexicalunit/cursor-indicator?branch=master
+[appveyor-badge]:   https://ci.appveyor.com/api/projects/status/y2tjco2s2t61evim/branch/master?svg=true
+[circle-ci]:        https://circleci.com/gh/lexicalunit/cursor-indicator/tree/master
+[circle-ci-badge]:  https://circleci.com/gh/lexicalunit/cursor-indicator/tree/master.svg?style=shield
 [david-badge]:      https://david-dm.org/lexicalunit/cursor-indicator.svg
 [david]:            https://david-dm.org/lexicalunit/cursor-indicator
+
+[img_cursors]:      https://cloud.githubusercontent.com/assets/1903876/8216758/212eae80-14fe-11e5-80a6-443a6daf9d95.png
