@@ -19,10 +19,11 @@ class CursorIndicatorView extends HTMLElement
   updateConfig: ->
     @displayPrefix = atom.config.get 'cursor-indicator.displayPrefix'
     @displaySuffix = atom.config.get 'cursor-indicator.displaySuffix'
+    @alwaysDisplay = atom.config.get 'cursor-indicator.alwaysDisplay'
 
   update: (editor) ->
-    len = editor?.getCursors().length
-    if len > 1
+    len = editor?.getCursors().length or 1
+    if len > 1 or @alwaysDisplay
       @textContent = "#{@displayPrefix}#{len}#{@displaySuffix}"
       @style.display = 'inline-block'
     else
@@ -36,6 +37,7 @@ class CursorIndicatorView extends HTMLElement
       @update()
     @subs.add atom.config.onDidChange 'cursor-indicator.displayPrefix', redraw
     @subs.add atom.config.onDidChange 'cursor-indicator.displaySuffix', redraw
+    @subs.add atom.config.onDidChange 'cursor-indicator.alwaysDisplay', redraw
     @subs.add atom.workspace.onDidChangeActivePaneItem (item) =>
       # Ensure the active pane actually supports cursors.
       return unless item and 'getCursors' of item

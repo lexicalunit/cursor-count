@@ -8,6 +8,9 @@ module.exports =
     displaySuffix:
       type: 'string'
       default: ''
+    alwaysDisplay:
+      type: 'boolean'
+      default: false
 
   consumeStatusBar: (statusBar) ->
     @observeEditors()
